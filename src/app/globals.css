@@ -2,32 +2,112 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+main {
+  background: linear-gradient(180deg, #fff 0%, #d8efff 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.wrapper {
+  background-color: white;
+  box-shadow: 0 0 25px 0 rgba(142, 160, 173, 0.35);
+}
+
+.scroll-fixed {
+  overflow: hidden;
+}
+
+.block-bg {
+  background: linear-gradient(90deg, #fdd966 0%, #bcd77e 68.54%);
+}
+
+.strategic-bg {
+  box-shadow: 0 0 25px 0 rgba(142, 160, 173, 0.35);
+  background: linear-gradient(90deg, #fbfdff 0%, #d8efff 100%);
+}
+
+.circle-bg {
+  background: linear-gradient(90deg, #fdd966 0%, #bcd77e 68.54%);
+}
+
+.info-card {
+  flex: 1 0 calc(50% - 30px);
+}
+
+.tech-close {
+  max-height: 212px;
+  transition: max-height 0.5s ease-out;
+}
+
+.tech-open {
+  max-height: 1500px;
+  transition: max-height 0.8s ease-in-out;
+}
+
+.card-block {
+  background: linear-gradient(
+    270deg,
+    rgb(216, 239, 255),
+    rgb(255, 255, 255) 100%
+  );
+}
+
+#triangle {
+  width: 0;
+  height: 0;
+  border-top: 58px solid transparent;
+  border-left: 47px solid #d8efff;
+  border-bottom: 58px solid transparent;
+}
+
+#triangle-second {
+  width: 0;
+  height: 0;
+  border-top: 58px solid transparent;
+  border-left: 47px solid #01457a;
+  border-bottom: 58px solid transparent;
+}
+
+.line-bg {
+  background-image: linear-gradient(
+    #01457a 0%,
+    #43a7c7 33%,
+    #bcd77e 66%,
+    #bcd77e 100%
+  );
+}
+
+.modal-animation {
+  animation: slide-down 300ms ease-out forwards;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media screen and (max-width: 1300px) {
+  .card > div:nth-child(1),
+  .card > div:nth-child(2) {
+    flex: 1 0 calc(50% - 30px);
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media (min-width: 1024px) {
+  .scroll-class {
+    overflow-y: scroll;
+  }
+
+  .scroll-class::-webkit-scrollbar {
+    background-color: transparent;
   }
 }

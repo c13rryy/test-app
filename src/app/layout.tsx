@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { notoSans } from "./fonts/fonts";
+import Providers from "@/components/Providers/Providers";
+import MythModal from "@/components/Modals/MythModal/MythModal";
+import RealModal from "@/components/Modals/RealModal/RealModal";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +16,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="w-full">
+      <Providers>
+        <body className={`relative h-full antialiased ${notoSans.className}`}>
+          <div id="modal" />
+          <main className="relative flex flex-col items-center min-h-screen">
+            <div className="flex-grow flex-1 2xl:w-full w-[95%] max-w-[1380px] wrapper">
+              {children}
+            </div>
+          </main>
+          <MythModal />
+          <RealModal />
+        </body>
+      </Providers>
     </html>
   );
 }
